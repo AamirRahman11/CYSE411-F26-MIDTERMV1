@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Status Portal</title>
+</head>
+
+<body>
+
+<h1>Employee Portal</h1>
+
+<h3>Load Profile</h3>
+
+<textarea id="profileInput" rows="6" cols="50">
+{"username":"alice","role":"user","notifications":["Welcome Alice"]}
+</textarea>
+
+<br><br>
+
+<button id="loadBtn">Load Profile</button>
+
+<h3>User</h3>
+<div id="username"></div>
+
+<h3>Notifications</h3>
+<ul id="notifications"></ul>
+
+<h3>Session</h3>
+<button id="saveSession">Save Session</button>
+<button id="loadSession">Load Session</button>
+
+<script src="app.js"></script>
+
+</body>
+</html>
