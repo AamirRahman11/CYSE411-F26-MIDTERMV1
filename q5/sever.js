@@ -43,17 +43,14 @@ app.post("/login", (req, res) => {
     const username = req.body.username
     const password = req.body.password
 
-    const query =
-        "SELECT * FROM users WHERE username = '" +
-        username +
-        "' AND password = '" +
-        password +
-        "'"
+    const query = //this is susecptiable to the ' OR '1' or '1' attack because this is using string concetation
+    //must use strong asserations because soft ones lead to SQL injection
+        "SELECT * FROM users WHERE username = ? AND password = ?" //wont accept ' OR '1'= '1'
 
     console.log("\nExecuting SQL:")
     console.log(query)
 
-    db.all(query, (err, rows) => {
+    db.all(query, [username, password], (err, rows) => { //pulls specifcally the username and password entered in the "?" spots 
 
         if (err) {
             return res.status(500).send("Database error")
